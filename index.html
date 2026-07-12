@@ -77,7 +77,7 @@
 
     .inner {
       max-width: 1100px;
-      margin: auto;
+      margin: 0 auto;
     }
 
     h2 {
@@ -162,9 +162,10 @@
 
     /* ====== アクセス ====== */
     .access-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .access-box {
@@ -174,6 +175,9 @@
       text-align: center;
       color: var(--muted);
       background: #fff;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .map-wrap {
@@ -205,7 +209,7 @@
       .hero img { width: 85%; max-width: 320px; margin-bottom: 20px; }
       .hero-title { font-size: 1.8rem; }
       .lead { font-size: 0.95rem; line-height: 1.6; }
-      .access-grid { grid-template-columns: 1fr; gap: 30px; }
+      .access-grid { flex-direction: column; gap: 30px; }
       .map-wrap iframe { height: 300px; }
       nav button { padding: 6px 10px; font-size: 0.8rem; }
       .class-card { width: 100%; max-width: none; }
@@ -215,6 +219,7 @@
   <script>
     function scrollToId(id) {
       const el = document.getElementById(id);
+      if (!el) return;
       const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -245,24 +250,20 @@
 <!-- ====== HERO ====== -->
 <section id="top">
   <div class="inner hero">
-
-    <img src="twinkles_logo.jpg" alt="Twinklesロゴ" style="width:70%; max-width:420px; margin:0 auto 30px; filter:drop-shadow(0 6px 10px rgba(0,0,0,0.15));">
-
+    <img src="logo.jpg" alt="Twinklesロゴ" style="width:70%; max-width:420px; margin:0 auto 30px; filter:drop-shadow(0 6px 10px rgba(0,0,0,0.15));">
     <div>
-      <h1 class="hero-title">板橋キッズチアダンス<br>
+      <h1 class="hero-title">
+        板橋キッズチアダンス<br>
         <span class="twinkles-hero">Twinkles</span>
       </h1>
-
       <p class="lead">
         毎週土曜日 16:45〜17:45<br>
         小学1年生〜中学生<br>
         明るくキラキラしたチアダンスで、笑顔と元気を届けよう♪
       </p>
-
       <button class="btn btn-primary" onclick="scrollToId('contact')">無料体験に申し込む</button>
       <button class="btn btn-ghost" onclick="scrollToId('classes')">クラスを見る</button>
     </div>
-
   </div>
 </section>
 
@@ -274,7 +275,7 @@
 
     <div class="class-grid">
       <div class="class-card class-card-accent">
-        <img src="twinkles_photo.jpg" alt="Twinklesクラス">
+        <img src="class.jpg" alt="Twinklesクラス">
         <h3>Twinklesクラス</h3>
         <p>対象：小学1年生〜中学生</p>
         <p>毎週土曜日 16:45〜17:45</p>
@@ -282,7 +283,6 @@
         <p>キラキラしたチアダンスで楽しく踊りながら、仲間と一緒に成長していきます。</p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -290,24 +290,17 @@
 <section id="access">
   <div class="inner">
     <h2>アクセス</h2>
-    <p class="lead">板橋区内のスタジオでレッスンを行っています。</p>
+    <p class="lead">板橋区近郊のスタジオでレッスンを行っています。</p>
 
     <div class="access-grid">
-
+      <!-- studioハレマニ -->
       <div class="access-box">
         <h3>studioハレマニ</h3>
         <p>〒114-0023<br>東京都北区滝野川6丁目11-9</p>
-
         <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.0200!2d139.72!3d35.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d!2z44CSMTE0LTAwMjMg5p2x5Lqs6YO95Y-w5p2x5Yy65rGf5YyX77yR5LiB55uu77yR77yQ!5e0!3m2!1sja!2sjp!4v0000000000000"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin">
-          </iframe>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.3175007408668!2d139.72443819999998!3d35.743000200000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601893f5908d88ff%3A0x16c52312ca980790!2zc3R1ZGlv44OP44Os44Oe44OL!5e0!3m2!1sja!2sjp!4v1783843105076!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -330,7 +323,6 @@
         読み込んでいます…
       </iframe>
     </div>
-
   </div>
 </section>
 
@@ -356,7 +348,9 @@
       <!-- Brights -->
       <div style="background:#fff; padding:24px; border-radius:16px; box-shadow:var(--shadow); width:100%; max-width:480px; color:#000;">
         <strong style="font-size:1.2rem;">所沢エリア Brights</strong><br>
-        <a href="https://springhope312-create.github.io/brights-cheer-dance/" target="_blank" style="color:var(--pink); font-weight:600;">
+        <a href="https://springhope312-create.github.io/brights-cheer-dance/"
+           target="_blank"
+           style="color:var(--pink); font-weight:600;">
           Brights ホームページを見る
         </a>
       </div>
