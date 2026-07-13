@@ -163,8 +163,8 @@
 
     /* ====== アクセス ====== */
     .access-grid {
-      display: flex;               /* ← grid から flex に変更 */
-      justify-content: center;     /* ← 中央寄せ */
+      display: flex;
+      justify-content: center;
       align-items: flex-start;
       gap: 20px;
       flex-wrap: wrap;
@@ -179,8 +179,8 @@
       color: var(--muted);
       background: #fff;
       width: 100%;
-      max-width: 600px;            /* ← PCでも中央に収まる */
-      margin: 0 auto;              /* ← 左右中央寄せ */
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .map-wrap {
@@ -190,7 +190,7 @@
     }
 
     .map-wrap iframe {
-      width: 100%;                 /* ← スマホで画面幅にフィット */
+      width: 100%;
       height: 350px;
       border: 0;
       border-radius: var(--radius);
@@ -219,11 +219,11 @@
       }
 
       .access-box {
-        max-width: 100%;           /* ← はみ出し防止 */
+        max-width: 100%;
       }
 
       .map-wrap iframe {
-        height: 300px;             /* ← スマホ用に高さ調整 */
+        height: 300px;
       }
 
       nav button { padding: 6px 10px; font-size: 0.8rem; }
@@ -312,8 +312,12 @@
         <h3>studioハレマニ</h3>
         <p>〒114-0023<br>東京都北区滝野川6丁目11-9</p>
         <div class="map-wrap">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.3175018567613!2d139.7218632758386!3d35.74300017256735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601893f5908d88ff%3A0x16c52312ca980790!2zc3R1ZGlv44OP44Os44Oe44OL!5e0!3m2!1sja!2sus!4v1783941094350!5m2!1sja!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.3175018567613!2d139.7218632758386!3d35.74300017256735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601893f5908d88ff%3A0x16c52312ca980790!2zc3R1ZGlv44OP44Os44Oe44OL!5e0!3m2!1sja!2sus!4v1783941094350!5m2!1sja!2sus"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
         </div>
       </div>
     </div>
