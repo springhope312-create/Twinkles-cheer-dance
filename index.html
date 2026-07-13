@@ -5,7 +5,6 @@
   <title>Twinkles CHEER DANCE | 板橋キッズチアダンス</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* ====== 基本設定 ====== */
     :root {
       --pink: #ff9ad9;
       --gold: #ffd700;
@@ -21,11 +20,11 @@
       font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
       color: var(--text);
       background: #ffe6f5;
+      overflow-x: hidden; /* ← 横ズレ防止 */
     }
 
     img { max-width: 100%; display: block; }
 
-    /* ====== ヘッダー ====== */
     header {
       position: sticky;
       top: 0;
@@ -64,7 +63,6 @@
       color: #fff;
     }
 
-    /* ====== セクション共通 ====== */
     section {
       padding: 70px 20px;
     }
@@ -86,7 +84,6 @@
       line-height: 1.7;
     }
 
-    /* ====== HERO ====== */
     .hero {
       display: grid;
       grid-template-columns: 1fr;
@@ -126,7 +123,6 @@
       color: var(--pink);
     }
 
-    /* ====== クラス紹介 ====== */
     .class-grid {
       display: flex;
       justify-content: center;
@@ -154,7 +150,6 @@
       border-color: var(--pink);
     }
 
-    /* ====== アクセス ====== */
     .access-grid {
       display: flex;
       justify-content: center;
@@ -170,7 +165,7 @@
       text-align: center;
       color: var(--muted);
       background: #fff;
-      width: calc(100% - 20px); /* ← スマホで左右に余白を作る */
+      width: calc(100% - 32px); /* ← スマホで左右余白確保 */
       max-width: 600px;
       margin: 0 auto;
     }
@@ -189,7 +184,6 @@
       display: block;
     }
 
-    /* ====== フッター ====== */
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -197,7 +191,6 @@
       border-top: 1px solid rgba(255,192,203,0.4);
     }
 
-    /* ====== スマホ最適化 ====== */
     @media (max-width: 600px) {
       section { padding: 50px 16px; }
       .hero { padding-top: 40px; }
@@ -205,185 +198,9 @@
       .hero-title { font-size: 1.8rem; }
       .lead { font-size: 0.95rem; line-height: 1.6; }
 
-      .access-grid {
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .access-box {
-        width: calc(100% - 20px); /* ← スマホで確実に収まる */
-        max-width: 100%;
-      }
-
-      .map-wrap iframe {
-        height: 300px;
-      }
+      .access-grid { flex-direction: column; gap: 30px; }
+      .access-box { width: calc(100% - 32px); max-width: 100%; }
+      .map-wrap iframe { height: 300px; }
 
       nav button { padding: 6px 10px; font-size: 0.8rem; }
-      .class-card { width: 100%; max-width: none; }
-    }
-  </style>
-
-  <script>
-    function scrollToId(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  </script>
-</head>
-
-<body>
-
-<!-- ====== HEADER ====== -->
-<header>
-  <div class="header-inner">
-    <div class="logo-area">
-      <div>
-        <strong>Twinkles CHEER DANCE</strong><br>
-        <small>板橋キッズチアダンス</small>
-      </div>
-    </div>
-
-    <nav>
-      <button onclick="scrollToId('top')">トップ</button>
-      <button onclick="scrollToId('classes')">クラス紹介</button>
-      <button onclick="scrollToId('access')">アクセス</button>
-      <button class="nav-cta" onclick="scrollToId('contact')">お問い合わせ</button>
-    </nav>
-  </div>
-</header>
-
-<!-- ====== HERO ====== -->
-<section id="top">
-  <div class="inner hero">
-    <img src="logo.jpg" alt="Twinklesロゴ" style="width:70%; max-width:420px; margin:0 auto 30px; filter:drop-shadow(0 6px 10px rgba(0,0,0,0.15));">
-    <div>
-      <h1 class="hero-title">
-        板橋キッズチアダンス<br>
-        <span class="twinkles-hero">Twinkles</span>
-      </h1>
-      <p class="lead">
-        毎週土曜日 16:45〜17:45<br>
-        小学1年生〜中学生<br>
-        明るくキラキラしたチアダンスで、笑顔と元気を届けよう♪
-      </p>
-      <button class="btn btn-primary" onclick="scrollToId('contact')">無料体験に申し込む</button>
-      <button class="btn btn-ghost" onclick="scrollToId('classes')">クラスを見る</button>
-    </div>
-  </div>
-</section>
-
-<!-- ====== CLASSES ====== -->
-<section id="classes">
-  <div class="inner">
-    <h2>クラス紹介</h2>
-    <p class="lead">初心者から楽しく始められるチアダンスクラスです。</p>
-
-    <div class="class-grid">
-      <div class="class-card class-card-accent">
-        <img src="class.jpg" alt="Twinklesクラス">
-        <h3>Twinklesクラス</h3>
-        <p>対象：小学1年生〜中学生</p>
-        <p>毎週土曜日 16:45〜17:45</p>
-        <p><strong>料金：月額 6,000円（月4回）</strong></p>
-        <p>キラキラしたチアダンスで楽しく踊りながら、仲間と一緒に成長していきます。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== ACCESS ====== -->
-<section id="access">
-  <div class="inner">
-    <h2>アクセス</h2>
-    <p class="lead">板橋区近郊のスタジオでレッスンを行っています。</p>
-
-    <div class="access-grid">
-      <div class="access-box">
-        <h3>studioハレマニ</h3>
-        <p>〒114-0023<br>東京都北区滝野川6丁目11-9</p>
-        <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.3175018567613!2d139.7218632758386!3d35.74300017256735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601893f5908d88ff%3A0x16c52312ca980790!2zc3R1ZGlv44OP44Os44Oe44OL!5e0!3m2!1sja!2sus!4v1783941094350!5m2!1sja!2sus"
-            style="width:100%; height:300px; border:0; border-radius:12px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== CONTACT ====== -->
-<section id="contact">
-  <div class="inner">
-    <h2>お問い合わせ・無料体験</h2>
-    <p class="lead">お気軽にお問い合わせください。</p>
-
-    <div style="width:100%; max-width:100%; overflow:hidden;">
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLScAuTXg1XXfXJrUNRoZBSF8W1zVzKAcMMhR5ly_NE1QD2GGDg/viewform?embedded=true"
-        width="100%"
-        height="1400"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        style="border:0; border-radius: 12px;">
-        読み込んでいます…
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 系列キッズチアダンスチーム ===== -->
-<section id="groups" style="padding:70px 20px;">
-  <div class="inner" style="max-width:1100px; margin:auto;">
-
-    <h2 style="text-align:center; font-size:2rem; margin-bottom:10px;">
-      系列キッズチアダンスチーム
-    </h2>
-    <p class="lead" style="text-align:center; margin-bottom:40px;">
-      Lilacと同じ系列で活動しているキッズチアダンスチームです。
-    </p>
-
-    <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
-
-      <div style="background:#fff; padding:24px; border-radius:16px; box-shadow:var(--shadow); width:100%; max-width:480px; color:#000;">
-        <strong style="font-size:1.2rem;">Lilac</strong><br>
-        <span style="color:#555; font-size:0.9rem;">リンク未設定</span>
-      </div>
-
-      <div style="background:#fff; padding:24px; border-radius:16px; box-shadow:var(--shadow); width:100%; max-width:480px; color:#000;">
-        <strong style="font-size:1.2rem;">所沢エリア Brights</strong><br>
-        <a href="https://springhope312-create.github.io/brights-cheer-dance/"
-           target="_blank"
-           style="color:var(--pink); font-weight:600;">
-          Brights ホームページを見る
-        </a>
-      </div>
-
-      <div style="background:#fff; padding:24px; border-radius:16px; box-shadow:var(--shadow); width:100%; max-width:480px; color:#000;">
-        <strong style="font-size:1.2rem;">幡ヶ谷エリア AILES</strong><br>
-        <span style="color:#555; font-size:0.9rem;">リンク未設定</span>
-      </div>
-
-      <div style="background:#fff; padding:24px; border-radius:16px; box-shadow:var(--shadow); width:100%; max-width:480px; color:#000;">
-        <strong style="font-size:1.2rem;">板橋エリア Twinkles</strong><br>
-        <span style="color:#555; font-size:0.9rem;">このページが公式サイトです</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ====== FOOTER ====== -->
-<footer>
-  © 2026 Twinkles CHEER DANCE / Itabashi.
-</footer>
-
-</body>
-</html>
+      .class-card {
